@@ -1,0 +1,18 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-icon {
+    padding: 0 14px;
+}
+
+.mat-button-large {
+    font-size: 20px;
+}
+
+mat-toolbar {
+    height: 64px;
+    position: fixed;
+    z-index: 100;
+    width: 100% !important;
+}

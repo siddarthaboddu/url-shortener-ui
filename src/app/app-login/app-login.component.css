@@ -1,0 +1,19 @@
+.login-card {
+    max-width: 450px;
+    max-height: 500px;
+    /* background-color: red; */
+    position: relative;
+    top: 50px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.full-width-field {
+    width: 100%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
