@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UrlService } from '../services/url.service';
 
 @Component({
   selector: 'app-app-user-home',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppUserHomeComponent implements OnInit {
 
-  constructor() { }
+  links: [];
+
+  constructor(private urlService: UrlService) { }
 
   ngOnInit() {
+  }
+
+  fetchLinks(){
+    this.urlService.fetchAllLinks().then((data)=>{
+      this.links = data;
+    });
   }
 
 }
