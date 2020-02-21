@@ -21,6 +21,7 @@ import { HttpInterceptorService } from './interceptor/http-interceptor.service';
 import { FreeUrlService } from './services/free-url.service';
 import { UrlService } from './services/url.service';
 import { UserService } from './services/user.service';
+import { AppLogoutComponent } from './app-logout/app-logout.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserService } from './services/user.service';
     AppUserHomeComponent,
     HeaderComponent,
     UserHeaderComponent,
-    HomeContentComponent
+    HomeContentComponent,
+    AppLogoutComponent
   ],
   imports: [
     BrowserModule,

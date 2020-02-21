@@ -5,6 +5,7 @@ import { AppLoginComponent } from './app-login/app-login.component';
 import { AppRegisterComponent } from './app-register/app-register.component';
 import { AppUserHomeComponent } from './app-user-home/app-user-home.component';
 import { HomeContentComponent} from './home-content/home-content.component';
+import { AppLogoutComponent } from './app-logout/app-logout.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
     children: [
       {path: '', component: HomeContentComponent},
       {path: 'login', component: AppLoginComponent},
-      {path: 'register', component: AppRegisterComponent}
+      {path: 'register', component: AppRegisterComponent},
+      {path: 'logout', component: AppLogoutComponent}
     ]
   },
   { path: 'home', component: AppUserHomeComponent }

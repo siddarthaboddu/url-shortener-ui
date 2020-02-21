@@ -1,1 +1,37 @@
-<p>app-register works!</p>>
+<mat-card (keyup.enter)="register()" class="register-card" style="text-align: center">
+    <br>
+    <br>
+    <mat-card-title>Register</mat-card-title>
+    <mat-card-subtitle>Continue to {{APP_NAME}}</mat-card-subtitle>
+    <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="userForm.firstName">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="userForm.lastName">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="userForm.email">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="userForm.password">
+    </mat-form-field>
+    <div style="text-align: initial">
+        <span class="spacer"></span>
+        <button mat-raised-button color="primary" style="float: right" (click)="register()">Register</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</mat-card>
+
+
+
+<div *ngIf="isRegisterSuccessful === true">registration successful</div>
+<div *ngIf="isRegisterSuccessful === false">registration failed</div>
