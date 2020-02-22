@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from '../services/url.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-home-content',
@@ -8,12 +9,14 @@ import { UrlService } from '../services/url.service';
 })
 export class HomeContentComponent implements OnInit {
 
-  constructor() {
+  constructor(private notificationService: NotificationService) {
    }
 
   ngOnInit() {
   }
 
-
+  triggerNotification(){
+    this.notificationService.triggerNotification("trigger notitication");
+  }
 
 }

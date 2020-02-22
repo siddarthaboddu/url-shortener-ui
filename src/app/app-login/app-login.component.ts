@@ -3,6 +3,7 @@ import { Properties } from './../properties';
 import { Router } from '@angular/router';
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
 import { AuthService } from '../services/auth-service.service';
+import { NotificationService } from '../services/notification.service';
 @Component({
   selector: 'app-app-login',
   templateUrl: './app-login.component.html',
@@ -16,7 +17,7 @@ export class AppLoginComponent implements OnInit {
   
   wrongCredentials: boolean;
 
-  constructor(private router :Router, private authService :AuthService) { }
+  constructor(private router :Router, private authService :AuthService, private notificationService: NotificationService) { }
 
   ngOnInit() {
   }
@@ -29,10 +30,13 @@ export class AppLoginComponent implements OnInit {
       console.log("logging in");
       this.authService.login(this.email, this.password).then((response)=>{
         console.log(response);
-        if(response == true)
+        if(response == true){
           this.router.navigateByUrl('/home');
+          this.notificationService.triggerNotification("Login Successful","success");
+        }
         else{
           this.wrongCredentials = true;
+          this.notificationService.triggerNotification("Login Failed, invalid credentials", "error");
         }
       });
     }

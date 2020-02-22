@@ -22,6 +22,55 @@ import { FreeUrlService } from './services/free-url.service';
 import { UrlService } from './services/url.service';
 import { UserService } from './services/user.service';
 import { AppLogoutComponent } from './app-logout/app-logout.component';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { NotificationService } from './services/notification.service';
+import {NotifierOptions, NotifierModule} from 'angular-notifier';
+
+
+
+/**
+ * Custom angular notifier options
+ */
+const customNotifierOptions: NotifierOptions = {
+  position: {
+		horizontal: {
+			position: 'right',
+			distance: 12
+		},
+		vertical: {
+			position: 'top',
+			distance: 70,
+			gap: 10
+		}
+	},
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 10
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 
 @NgModule({
   declarations: [
@@ -34,7 +83,7 @@ import { AppLogoutComponent } from './app-logout/app-logout.component';
     HeaderComponent,
     UserHeaderComponent,
     HomeContentComponent,
-    AppLogoutComponent
+    AppLogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,15 +91,19 @@ import { AppLogoutComponent } from './app-logout/app-logout.component';
     BrowserAnimationsModule,
     MaterialModuleModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NotifierModule.withConfig(customNotifierOptions)
   ],
   providers: [   
      AuthService,
      FreeUrlService,
      UrlService,
      UserService,
-     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
+     NotificationService,
+     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
+     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
+

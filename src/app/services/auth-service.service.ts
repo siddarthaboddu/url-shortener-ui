@@ -13,7 +13,8 @@ export class AuthService {
   login(email :String, password :String) : Promise<any> {
     let promise = new Promise((resolve, reject)=>{
       this.http.post<any>('http://localhost:8080/token/login', {email, password}, {observe: 'response'}).subscribe((response)=>{
-        if(response.status == 200 || response.status == 201){
+      console.log("log response:",response,"      | response.status=",response.status);  
+      if(response.status == 200 || response.status == 201){
           console.log(response);
           this.setSession(response.body);
           console.log(this.getExpiration());

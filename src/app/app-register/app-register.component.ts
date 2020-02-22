@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth-service.service';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-app-register',
@@ -14,9 +15,8 @@ export class AppRegisterComponent implements OnInit {
   APP_NAME : String = Properties.APP_NAME; 
   
   userForm: User;
-  isRegisterSuccessful: boolean = undefined;
 
-  constructor(private router :Router, private authService :AuthService) { }
+  constructor(private router :Router, private authService :AuthService, private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.userForm = new User();
@@ -25,7 +25,13 @@ export class AppRegisterComponent implements OnInit {
   register(){
     if(this.userForm.firstName && this.userForm.lastName && this.userForm.email && this.userForm.password){
         this.authService.register(this.userForm).then((isRegisterSuccessful)=>{
-          this.isRegisterSuccessful = isRegisterSuccessful;
+          if(isRegisterSuccessful){
+            this.notificationService.triggerNotification("Registration successful","success");
+            this.router.navigateByUrl("/login");
+          }
+          else{
+            this.notificationService.triggerNotification("Registration failed","warn");
+          }
         });
     }
   }
