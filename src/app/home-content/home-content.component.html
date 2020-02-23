@@ -1,2 +1,32 @@
+<mat-card (keyup.enter)="shortenFreeUrl()" class="shorten-card" style="text-align: center" color="primary">
+
+    <mat-form-field class="full-width-field">
+        <mat-label>URL</mat-label>
+        <input placeholder=" Enter the link here " matInput [(ngModel)]="originalUrl">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="shortenFreeUrl(originalUrl)">Shorten URL</button>
+</mat-card>
+
+<br>
+<br>
+
+<mat-progress-bar class="loading" mode="indeterminate" *ngIf="fetchingShortenedURL"></mat-progress-bar>
+
+<br>
+
+<mat-card class="shorten-card" style="text-align: center" color="primary">
+
+</mat-card>
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 <p>home-content works!</p>
-<button (click)="triggerNotification()">trigger notificaiton</button>
+<button (click)="triggerNotification() ">trigger notificaiton</button>
