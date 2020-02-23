@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+// var validUrl = require('valid-url');
+import * as validUrl from 'valid-url';
+import { error } from 'protractor';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,14 +37,20 @@ export class UrlService {
         console.log("successful ,:",response.body);
         resolve(response.body);
       }
-      else{
-        if(response.status == 509)
-          throw new Error("BANDWIDTH_LIMIT_EXCEEDED");
-        else
-          throw new Error("ERROR_EXPERIENCED");
-      }
+    },
+    (error)=>{
+      console.log("__________________________");
+      console.log(error);
+      console.log("__________________________");
+      if(error.status == 509)
+        reject(new Error("BANDWIDTH_LIMIT_EXCEEDED"));
+      else
+        reject(new Error("ERROR_EXPERIENCED"));
     });
   });
 }
+  public validUrl(url: String): boolean {
+    return validUrl.isUri(url);
+  }
   
 }

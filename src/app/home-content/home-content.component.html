@@ -2,7 +2,7 @@
 
     <mat-form-field class="full-width-field">
         <mat-label>URL</mat-label>
-        <input placeholder=" Enter the link here " matInput [(ngModel)]="originalUrl">
+        <input placeholder=" Enter the link here " matInput [(ngModel)]="originalUrl" type="url">
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="shortenFreeUrl(originalUrl)">Shorten URL</button>
 </mat-card>
@@ -14,6 +14,18 @@
 
 <br>
 
-<mat-card class="shorten-card" style="text-align: center" color="primary">
-
+<mat-card class="shorten-card" style="text-align: center" color="primary" *ngFor="let url of listOfUrls;let i = index">
+    <br>
+    <div>
+        <a href="javascript: " style="color: inherit;">
+            <i class="far fa-times-circle" style="float: right" (click)="removeUrlFromList(i)"></i>
+        </a>
+        <mat-card-subtitle>{{url.originalUrl}}</mat-card-subtitle>
+    </div>
+    <div>
+        <mat-card-content>
+            <a href="{{url.shortUrl}}" target="_blank" style=" color: inherit;">{{url.shortUrl}}</a>
+            <a href="javascript:" style=" color: inherit;"><i class="fas fa-clipboard" style="padding-left: 10px;" (click)="copyMessage(url.shortUrl)"></i></a>
+        </mat-card-content>
+    </div>
 </mat-card>
