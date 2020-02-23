@@ -25,6 +25,7 @@ import { AppLogoutComponent } from './app-logout/app-logout.component';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { NotificationService } from './services/notification.service';
 import {NotifierOptions, NotifierModule} from 'angular-notifier';
+import { AppTextScrambleComponent } from './app-text-scramble/app-text-scramble.component';
 
 
 
@@ -84,6 +85,7 @@ const customNotifierOptions: NotifierOptions = {
     UserHeaderComponent,
     HomeContentComponent,
     AppLogoutComponent,
+    AppTextScrambleComponent,
   ],
   imports: [
     BrowserModule,

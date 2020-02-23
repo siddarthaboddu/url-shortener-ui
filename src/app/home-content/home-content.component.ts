@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UrlService } from '../services/url.service';
 import { NotificationService } from '../services/notification.service';
 import { Url } from '../models/url';
+import { Properties } from '../properties';
 
 @Component({
   selector: 'app-home-content',
@@ -9,6 +10,7 @@ import { Url } from '../models/url';
   styleUrls: ['./home-content.component.css']
 })
 export class HomeContentComponent implements OnInit {
+  APP_NAME : String = Properties.APP_NAME;
 
   fetchingShortenedURL: boolean = false;
 
