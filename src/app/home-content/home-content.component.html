@@ -1,16 +1,20 @@
 <mat-toolbar color="primary" class="header">
     <br>
-    <mat-toolbar-row>
-        <div style="font-size: 56px;" class="header-row">
-            {{APP_NAME}}
-        </div>
-    </mat-toolbar-row>
     <br>
-    <mat-toolbar-row>
-        <div style="font-size: 15px; font-weight: 200;text-align: center;width: 100%;">
+    <br>
+    <!-- <mat-toolbar-row> -->
+    <div style="font-size: 56px;" class="header-row">
+        {{APP_NAME}}
+    </div>
+    <br>
+    <!-- </mat-toolbar-row> -->
+    <div>
+        <!-- <mat-toolbar-row> -->
+        <p style="font-size: 15px; font-weight: 200;text-align: center;width: 100%;word-break: break-all; word-wrap: break-word;">
             {{APP_NAME}} is a free tool to shorten a URL or reduce a link. Use our URL Shortener to create a shortened link making it easy to share.
-        </div>
-    </mat-toolbar-row>
+        </p>
+    </div>
+    <!-- </mat-toolbar-row> -->
     <mat-toolbar-row>
         <app-app-text-scramble></app-app-text-scramble>
     </mat-toolbar-row>
@@ -29,7 +33,8 @@
 <br>
 <br>
 
-<mat-progress-bar class="loading" mode="indeterminate" *ngIf="fetchingShortenedURL"></mat-progress-bar>
+<!-- <mat-progress-bar class="loading" mode="indeterminate" *ngIf="fetchingShortenedURL"></mat-progress-bar> -->
+<mat-progress-bar class="loading" mode="buffer" *ngIf="fetchingShortenedURL"></mat-progress-bar>
 
 <br>
 
