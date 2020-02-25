@@ -30,13 +30,20 @@ export class AppLoginComponent implements OnInit {
       console.log("logging in");
       this.authService.login(this.email, this.password).then((response)=>{
         console.log(response);
-        if(response == true){
+        if(response == "SUCCESS"){
           this.router.navigateByUrl('/home');
           this.notificationService.triggerNotification("Login Successful","success");
         }
-        else{
-          this.wrongCredentials = true;
+        // else{
+        //   this.wrongCredentials = true;
+        //   this.notificationService.triggerNotification("Login Failed, invalid credentials", "error");
+        // }
+      }).catch(errorMsg=>{
+        if(errorMsg == "BAD_CREDENTIALS"){
           this.notificationService.triggerNotification("Login Failed, invalid credentials", "error");
+        }
+        if(errorMsg == "ERROR_EXPERIENCED"){
+          this.notificationService.triggerNotification("Error Experienced", "error");
         }
       });
     }
