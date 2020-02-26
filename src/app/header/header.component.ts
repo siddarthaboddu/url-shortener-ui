@@ -13,8 +13,15 @@ export class HeaderComponent implements OnInit {
 
   authService: AuthService;
   
+  currentUser : any;
+
   constructor(private authServicePrivate: AuthService) { 
     this.authService = authServicePrivate;
+    let userDetails : string = localStorage.getItem("current_user");
+    if(userDetails){
+      console.log("user details : ",userDetails);
+      this.currentUser = JSON.parse(userDetails);
+    }
   }
 
   ngOnInit() {

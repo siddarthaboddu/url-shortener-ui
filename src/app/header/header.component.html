@@ -8,5 +8,6 @@
 <mat-toolbar *ngIf="authService.isLoggedIn()" class="mat-elevation-z6" color="primary">
     <a routerLink="/home" mat-button class="mat-button-large">{{APP_NAME}}</a>
     <span class="example-spacer"></span>
+    <a routerLink="/home" mat-button class="mat-button-large">{{currentUser.firstName + " " + currentUser.lastName }}</a>
     <a routerLink="/logout" mat-button class="mat-button-large">Logout</a>
 </mat-toolbar>

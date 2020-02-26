@@ -27,6 +27,7 @@ import { NotificationService } from './services/notification.service';
 import {NotifierOptions, NotifierModule} from 'angular-notifier';
 import { AppTextScrambleComponent } from './app-text-scramble/app-text-scramble.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 /**
@@ -94,6 +95,7 @@ const customNotifierOptions: NotifierOptions = {
     MaterialModuleModule,
     FormsModule,
     HttpClientModule,
+    FlexLayoutModule,
     NotifierModule.withConfig(customNotifierOptions)
   ],
   providers: [   

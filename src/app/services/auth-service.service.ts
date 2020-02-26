@@ -46,6 +46,7 @@ export class AuthService {
 
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem("current_user",JSON.stringify(authResult.user));
     return true;
   }
 
@@ -97,6 +98,7 @@ export class AuthService {
   public logout(): boolean{
     localStorage.removeItem("expires_at");
     localStorage.removeItem("access_token");
+    localStorage.removeItem("current_user");
     return true;
   }
 

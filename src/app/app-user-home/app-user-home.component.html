@@ -2,8 +2,25 @@
     <app-header></app-header>
 </div>
 <div class="spacer"></div>
+<!-- <button (click)="fetchLinks()">get links</button> {{links}} -->
 
-<p>app-user-home works!</p>
+<div fxLayout="column">
+    <div fxFlex="30">
 
-
-<button (click)="fetchLinks()">get links</button> {{links}}
+    </div>
+    <div fxLayout="row" fxFlex="70">
+        <div fxFlex="30">
+            <div fxLayout="column">
+                <div fxFlex="20">
+                    <mat-card class="graph-card"></mat-card>
+                </div>
+                <div fxFlex="80">
+                    <mat-card class="graph-card"></mat-card>
+                </div>
+            </div>
+        </div>
+        <div fxFlex="70">
+            <mat-card class="graph-card"></mat-card>
+        </div>
+    </div>
+</div>
