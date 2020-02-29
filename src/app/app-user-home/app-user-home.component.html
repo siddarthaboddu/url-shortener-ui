@@ -4,23 +4,29 @@
 <div class="spacer"></div>
 <!-- <button (click)="fetchLinks()">get links</button> {{links}} -->
 
-<div fxLayout="column">
-    <div fxFlex="30">
-
-    </div>
-    <div fxLayout="row" fxFlex="70">
-        <div fxFlex="30">
-            <div fxLayout="column">
-                <div fxFlex="20">
-                    <mat-card class="graph-card"></mat-card>
+<div class="container">
+    <div fxLayout="column" fxLayoutGap="6px">
+        <div fxFlex="50%" style="max-height: 500px !important;">
+            <app-all-visits-chart></app-all-visits-chart>
+        </div>
+        <div fxFlex="50%">
+            <div fxLayout="row" fxLayoutGap="8px">
+                <div fxFlex="35">
+                    <div fxLayout="column" fxLayoutGap="4px">
+                        <div fxFlex="20">
+                            <mat-card></mat-card>
+                        </div>
+                        <div fxFlex="80">
+                            <mat-card>
+                                <app-list-of-urls></app-list-of-urls>
+                            </mat-card>
+                        </div>
+                    </div>
                 </div>
-                <div fxFlex="80">
-                    <mat-card class="graph-card"></mat-card>
+                <div fxFlex="65">
+                    <mat-card></mat-card>
                 </div>
             </div>
-        </div>
-        <div fxFlex="70">
-            <mat-card class="graph-card"></mat-card>
         </div>
     </div>
 </div>

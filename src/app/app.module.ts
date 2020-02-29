@@ -28,7 +28,9 @@ import {NotifierOptions, NotifierModule} from 'angular-notifier';
 import { AppTextScrambleComponent } from './app-text-scramble/app-text-scramble.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { AllVisitsChartComponent } from './all-visits-chart/all-visits-chart.component';
+import { ListOfUrlsComponent } from './list-of-urls/list-of-urls.component';
 
 /**
  * Custom angular notifier options
@@ -87,6 +89,8 @@ const customNotifierOptions: NotifierOptions = {
     HomeContentComponent,
     AppLogoutComponent,
     AppTextScrambleComponent,
+    AllVisitsChartComponent,
+    ListOfUrlsComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +100,8 @@ const customNotifierOptions: NotifierOptions = {
     FormsModule,
     HttpClientModule,
     FlexLayoutModule,
-    NotifierModule.withConfig(customNotifierOptions)
+    NotifierModule.withConfig(customNotifierOptions),
+    NgxChartsModule
   ],
   providers: [   
      AuthService,

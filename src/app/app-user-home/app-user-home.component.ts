@@ -10,20 +10,11 @@ import { NotificationService } from '../services/notification.service';
 })
 export class AppUserHomeComponent implements OnInit {
 
-  links: Url[];
-
-  constructor(private urlService: UrlService, private notificationService: NotificationService) { }
+  constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
   }
 
-  fetchLinks() {
-    this.urlService.fetchAllUrls().then((data)=>{
-      this.links = data;
-    }).catch(error=>{
-      this.notificationService.triggerNotification("Error encountered", "error");
-      this.links = [];
-    });
-  }
+
 
 }
