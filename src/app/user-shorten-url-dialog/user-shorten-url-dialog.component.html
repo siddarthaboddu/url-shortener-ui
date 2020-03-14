@@ -1,0 +1,20 @@
+<div>
+    <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>URL</mat-label>
+        <input matInput type="url" [(ngModel)]="urlForm.longUrl">
+    </mat-form-field>
+    <br>
+    <mat-slide-toggle color="primary" (change)="onChange($event)">Password</mat-slide-toggle>
+    <br>
+    <br>
+    <div *ngIf="isPasswordEnabled">
+        <mat-form-field appearance="outline" class="full-width-field">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="urlForm.password" required/>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+        <mat-error *ngIf="urlForm.password == undefined || urlForm.password.length==0">Enter your password</mat-error>
+        <br>
+    </div>
+    <button mat-raised-button color="primary" style="width: 30%;min-width: 75px;float: right" (click)="onNoClick()">Shorten URL</button>
+</div>

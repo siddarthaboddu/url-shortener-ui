@@ -31,6 +31,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AllVisitsChartComponent } from './all-visits-chart/all-visits-chart.component';
 import { ListOfUrlsComponent } from './list-of-urls/list-of-urls.component';
+import { UserShortenUrlComponent } from './user-shorten-url/user-shorten-url.component';
+import { UserShortenUrlDialogComponent } from './user-shorten-url-dialog/user-shorten-url-dialog.component';
 
 /**
  * Custom angular notifier options
@@ -91,6 +93,8 @@ const customNotifierOptions: NotifierOptions = {
     AppTextScrambleComponent,
     AllVisitsChartComponent,
     ListOfUrlsComponent,
+    UserShortenUrlComponent,
+    UserShortenUrlDialogComponent,
   ],
   imports: [
     BrowserModule,

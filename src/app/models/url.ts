@@ -3,5 +3,6 @@ export class Url {
     shortUrl: String;
     visits: String;
     isPasswordProtected: boolean;
+    password: String;
     longUrl: String;
 }
