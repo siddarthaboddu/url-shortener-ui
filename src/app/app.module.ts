@@ -33,6 +33,7 @@ import { AllVisitsChartComponent } from './all-visits-chart/all-visits-chart.com
 import { ListOfUrlsComponent } from './list-of-urls/list-of-urls.component';
 import { UserShortenUrlComponent } from './user-shorten-url/user-shorten-url.component';
 import { UserShortenUrlDialogComponent } from './user-shorten-url-dialog/user-shorten-url-dialog.component';
+import { UserShortenUrlResponseDialogComponent } from './user-shorten-url-response-dialog/user-shorten-url-response-dialog.component';
 
 /**
  * Custom angular notifier options
@@ -95,6 +96,7 @@ const customNotifierOptions: NotifierOptions = {
     ListOfUrlsComponent,
     UserShortenUrlComponent,
     UserShortenUrlDialogComponent,
+    UserShortenUrlResponseDialogComponent,
   ],
   imports: [
     BrowserModule,

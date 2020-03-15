@@ -14,9 +14,9 @@ export class HomeContentComponent implements OnInit {
 
   fetchingShortenedURL: boolean = false;
 
-  originalUrl: String = "";
-  shortUrl: String;
-  shortUrlFetchingStatus: String;
+  originalUrl: string = "";
+  shortUrl: string;
+  shortUrlFetchingStatus: string;
 
   listOfUrls: Url[] = [];
   
@@ -26,7 +26,7 @@ export class HomeContentComponent implements OnInit {
   ngOnInit() {
   }
 
-  shortenFreeUrl(url: String){
+  shortenFreeUrl(url: string){
 
     if(!this.urlService.validUrl(url)){
       this.notificationService.triggerNotification("invalid URL","error");

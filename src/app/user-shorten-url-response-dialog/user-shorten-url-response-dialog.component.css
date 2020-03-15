@@ -1,0 +1,49 @@
+.shorten-card {
+    max-width: 500px;
+    width: 60%;
+    max-height: 500px;
+    /* background-color: red; */
+    position: relative;
+    top: 50px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.loading {
+    width: 80%;
+    /* background-color: red; */
+    position: relative;
+    top: 50px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.full-width-field {
+    width: 80%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.header {
+    height: 300px;
+    text-align: center !important;
+    /* position: relative; */
+}
+
+.header-row {
+    text-align: center !important;
+    width: 100%;
+    font-weight: 300;
+    /* position: relative; */
+}
+
+
+.material-icons {
+    vertical-align: middle;
+}

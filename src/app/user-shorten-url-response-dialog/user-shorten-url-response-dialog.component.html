@@ -1,0 +1,12 @@
+<div style="text-align: center">
+    <div>
+        <mat-card-subtitle style="word-break: break-all">{{url.longUrl}}</mat-card-subtitle>
+    </div>
+    <div style="text-align: center;">
+        <!-- <mat-card-content> -->
+        <a href="{{url.shortUrl}}" target="_blank" style=" color: inherit;">{{url.shortUrl}}</a>
+        <!-- </mat-card-content> -->
+        <!-- <a href="javascript:" style=" color: inherit;"><i class="material-icons" (click)="copyMessage(url.shortUrl)">file_copy</i></a> -->
+        <a href="javascript:" style=" color: inherit;"><i class="fas fa-clipboard" style="padding-left: 10px;" (click)="copyMessage(url.shortUrl)"></i></a>
+    </div>
+</div>

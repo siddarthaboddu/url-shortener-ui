@@ -1,8 +1,8 @@
 export class Url {
-    originalUrl: String;
-    shortUrl: String;
-    visits: String;
+    originalUrl: string;
+    shortUrl: string;
+    visits: string;
     isPasswordProtected: boolean;
-    password: String;
-    longUrl: String;
+    password: string;
+    longUrl: string;
 }

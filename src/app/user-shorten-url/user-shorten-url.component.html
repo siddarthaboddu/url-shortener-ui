@@ -1,4 +1,10 @@
-<div >
-    <button mat-raised-button color="primary" class="createButton" (click)="openShortenUrlDialog()">Shorten URL     <mat-icon>add_circle_outline</mat-icon>
-    </button>
+<div>
+    <div>
+        <button mat-raised-button color="primary" class="createButton" (click)="openShortenUrlFormDialog()">Shorten URL     <mat-icon>add_circle_outline</mat-icon>
+        </button>
+    </div>
+
+    <div class="loading-indicator" *ngIf="loading">
+        <mat-progress-spinner mode="indeterminate" color="primary"></mat-progress-spinner>
+    </div>
 </div>

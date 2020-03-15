@@ -66,5 +66,25 @@ export class UrlService {
       });
     });
   }
+
+  public userShortenUrl(url: Url) : Promise<Url> {
+    return new Promise<Url>((resolve, reject)=>{
+      this.httpClient.post<Url>("http://localhost:8080/api/shorten", {
+        url: url.longUrl,
+        passwordEnabled: url.isPasswordProtected,
+        password: url.password
+      })
+      .subscribe(response=>{
+        response.longUrl = response.originalUrl;
+        console.log("user url shorten response: ", response);
+        resolve(response);
+      },
+      error=>{
+        // throw Error("ERROR_EXPERIENCED");
+        reject(error);
+      });
+    });
+  }
+
   
 }
