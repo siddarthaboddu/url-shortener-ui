@@ -35,6 +35,9 @@ import { UserShortenUrlComponent } from './user-shorten-url/user-shorten-url.com
 import { UserShortenUrlDialogComponent } from './user-shorten-url-dialog/user-shorten-url-dialog.component';
 import { UserShortenUrlResponseDialogComponent } from './user-shorten-url-response-dialog/user-shorten-url-response-dialog.component';
 
+import { SimplebarAngularModule } from 'simplebar-angular';
+
+
 /**
  * Custom angular notifier options
  */
@@ -107,7 +110,8 @@ const customNotifierOptions: NotifierOptions = {
     HttpClientModule,
     FlexLayoutModule,
     NotifierModule.withConfig(customNotifierOptions),
-    NgxChartsModule
+    NgxChartsModule,
+    SimplebarAngularModule
   ],
   providers: [   
      AuthService,
