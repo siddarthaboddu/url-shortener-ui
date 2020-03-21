@@ -13,21 +13,6 @@ export class UrlService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // public fetchAllLinks(): Promise<[]>{
-  //   return new Promise<[]>((resolve, reject)=>{
-  //     this.httpClient.get<any>("http://localhost:8080/api/links").subscribe((response)=>{
-  //       if(response.status == '200'){
-  //         resolve(response.body);
-  //       }
-  //       else{
-  //         resolve([]);
-  //       }
-  //     }
-  //     );
-  //   });
-    
-  // }
-
   public freeShortenUrl(url: String) : Promise<any> {
     return new Promise<String>((resolve,reject)=>{this.httpClient.post<any>("http://localhost:8080/free/api/shorten",{
       url: url,
@@ -56,7 +41,7 @@ export class UrlService {
 
   public fetchAllUrls() : Promise<Url[]> {
     return new Promise<Url[]>((resolve, reject)=>{
-      this.httpClient.get<Url[]>("http://localhost:8080/api/links")
+      this.httpClient.get<Url[]>("http://localhost:8080/api/urls")
       .subscribe(response=>{
         console.log("response :",response);
         resolve(response);
@@ -80,11 +65,22 @@ export class UrlService {
         resolve(response);
       },
       error=>{
-        // throw Error("ERROR_EXPERIENCED");
         reject(error);
       });
     });
   }
 
-  
+
+  public fetchUrlDetails(id: number) : Promise<Url>{
+    return new Promise<Url>((resolve, reject)=>{
+      this.httpClient.get<Url>(`http://localhost:8080/api/url/${id}`)
+      .subscribe(response=>{
+        resolve(response);
+      },
+      error=>{
+        reject(error);
+      }
+      )
+    });
+  }
 }
