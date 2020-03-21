@@ -20,13 +20,13 @@
                         </div>
                         <div fxFlex="80">
                             <!-- <mat-card> -->
-                                <app-list-of-urls></app-list-of-urls>
+                                <app-list-of-urls (clickEvent)="populateUrlDetails($event)"></app-list-of-urls>
                             <!-- </mat-card> -->
                         </div>
                     </div>
                 </div>
                 <div fxFlex="65">
-                    <mat-card></mat-card>
+                    <app-url-details [urlId] = "urlId"></app-url-details>
                 </div>
             </div>
         </div>

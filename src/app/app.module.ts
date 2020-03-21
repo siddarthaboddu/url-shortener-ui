@@ -36,6 +36,7 @@ import { UserShortenUrlDialogComponent } from './user-shorten-url-dialog/user-sh
 import { UserShortenUrlResponseDialogComponent } from './user-shorten-url-response-dialog/user-shorten-url-response-dialog.component';
 
 import { SimplebarAngularModule } from 'simplebar-angular';
+import { UrlDetailsComponent } from './url-details/url-details.component';
 
 
 /**
@@ -100,6 +101,7 @@ const customNotifierOptions: NotifierOptions = {
     UserShortenUrlComponent,
     UserShortenUrlDialogComponent,
     UserShortenUrlResponseDialogComponent,
+    UrlDetailsComponent
   ],
   imports: [
     BrowserModule,

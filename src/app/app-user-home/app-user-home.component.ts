@@ -9,12 +9,17 @@ import { NotificationService } from '../services/notification.service';
   styleUrls: ['./app-user-home.component.css']
 })
 export class AppUserHomeComponent implements OnInit {
+  
+  urlId :any;
 
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
   }
 
-
+  populateUrlDetails($event){
+    console.log("received event ",$event);
+    this.urlId = $event;
+  }
 
 }

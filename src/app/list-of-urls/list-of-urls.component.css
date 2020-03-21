@@ -3,3 +3,7 @@
     height: auto;
     word-wrap: break-word;
 }
+
+.clicked {
+    background-color: #212121 ;
+}
