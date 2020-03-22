@@ -39,6 +39,7 @@ import { SimplebarAngularModule } from 'simplebar-angular';
 import { UrlDetailsComponent } from './url-details/url-details.component';
 import { ShortUrlRedirectComponent } from './short-url-redirect/short-url-redirect.component';
 
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 /**
  * Custom angular notifier options
@@ -115,7 +116,10 @@ const customNotifierOptions: NotifierOptions = {
     FlexLayoutModule,
     NotifierModule.withConfig(customNotifierOptions),
     NgxChartsModule,
-    SimplebarAngularModule
+    SimplebarAngularModule,
+    ShareButtonsModule.withConfig({
+      debug: true
+    })
   ],
   providers: [   
      AuthService,

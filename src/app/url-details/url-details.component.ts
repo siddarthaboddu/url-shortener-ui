@@ -3,6 +3,7 @@ import { Url } from '../models/url';
 import { UrlService } from '../services/url.service';
 import { timingSafeEqual } from 'crypto';
 import { Properties } from '../properties';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-url-details',
@@ -18,15 +19,17 @@ export class UrlDetailsComponent implements OnInit, OnChanges {
 
   SHORT_URL_PREFIX :string = Properties.SHORT_URL_PREFIX
 
-  constructor(private urlService :UrlService) { }
+  constructor(private urlService :UrlService, private notificationService :NotificationService) { }
 
   ngOnInit(): void {
-    this.populateUrlDetails(this.urlId);
+    if(this.urlId)
+      this.populateUrlDetails(this.urlId);
   }
 
   ngOnChanges(changes :SimpleChanges){
     console.log(changes);
-    this.populateUrlDetails(this.urlId);
+    if(this.urlId)
+      this.populateUrlDetails(this.urlId);
   }
 
   populateUrlDetails(id :any){
@@ -46,5 +49,23 @@ export class UrlDetailsComponent implements OnInit, OnChanges {
       },500)
     })
   }
+
+
+  copyMessage(val: string){
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = val;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+
+    this.notificationService.triggerNotification("Copied URL to clipboard")
+  }
+
 
 }

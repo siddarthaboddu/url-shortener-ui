@@ -24,6 +24,9 @@ export class ListOfUrlsComponent implements OnInit {
   fetchLinks() {
     this.urlService.fetchAllUrls().then((data)=>{
       this.urls = data;
+      if(this.urls.length>0){
+        this.selectedUrlId = this.urls[0].id;
+      }
     }).catch(error=>{
       this.notificationService.triggerNotification("Error encountered", "error");
       this.urls = [];
