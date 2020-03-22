@@ -1,8 +1,15 @@
-<mat-card style="height: 420px;text-align: center;align-items: center;" *ngIf="fetchingUrlDetails">
-    <mat-spinner class="loading-indicator" mode="indeterminate"></mat-spinner>
-</mat-card>
+<div style="width: 100%;height: 420px;">
+    <mat-card style="height: 420px;text-align: center;align-items: center;" *ngIf="fetchingUrlDetails">
+        <mat-spinner class="loading-indicator" mode="indeterminate"></mat-spinner>
+    </mat-card>
 
 
-<mat-card style="height: 420px;" *ngIf="!fetchingUrlDetails">
-    <p>url-details works!  {{urlId}}</p>
-</mat-card>
+    <mat-card style="height: 420px;width: 100%;" *ngIf="!fetchingUrlDetails">
+        <mat-card-header style="text-align: center;width: 100%;">
+            <mat-card-title style="text-align: center;width: 100%;">URL Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>Short Url : <a href="/short/{{urlDetails.shortUrl}}" >{{urlDetails.shortUrl}}</a></mat-card-content>
+        <mat-card-content>Long Url : <a href="{{urlDetails.longUrl}}" >{{urlDetails.longUrl}}</a></mat-card-content>
+    </mat-card>
+
+</div>

@@ -1,4 +1,32 @@
 .loading-indicator {
-    width: 50%;
-    margin: 0 auto;
-  }
+    margin-top: 150px !important;
+    margin-left: 50% !important;
+}
+
+mat-card{
+    color: white !important;
+}
+
+a{
+    text-decoration:none;
+    color: rgba(255, 255, 255, 0.9);
+    word-wrap: break-word;
+}
+
+mat-card-title {
+    margin-left: auto;
+}
+
+::ng-deep .mat-card-header-text {
+    width: 100% !important;
+}
+/* 
+.breakWords {
+    height: auto;
+    word-wrap: break-word;
+} */
+
+a:hover {
+    text-decoration: underline;
+    color: white;
+}
