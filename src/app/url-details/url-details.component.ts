@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChange, SimpleChanges } from
 import { Url } from '../models/url';
 import { UrlService } from '../services/url.service';
 import { timingSafeEqual } from 'crypto';
+import { Properties } from '../properties';
 
 @Component({
   selector: 'app-url-details',
@@ -14,6 +15,8 @@ export class UrlDetailsComponent implements OnInit, OnChanges {
 
   urlDetails: Url;
   fetchingUrlDetails: boolean;
+
+  SHORT_URL_PREFIX :string = Properties.SHORT_URL_PREFIX
 
   constructor(private urlService :UrlService) { }
 

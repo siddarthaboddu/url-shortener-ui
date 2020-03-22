@@ -8,7 +8,7 @@
         <mat-card-header style="text-align: center;width: 100%;">
             <mat-card-title style="text-align: center;width: 100%;">URL Details</mat-card-title>
         </mat-card-header>
-        <mat-card-content>Short Url : <a href="/short/{{urlDetails.shortUrl}}" >{{urlDetails.shortUrl}}</a></mat-card-content>
+        <mat-card-content>Short Url : <a href="/short/{{urlDetails.shortUrl}}" >{{SHORT_URL_PREFIX + urlDetails.shortUrl}}</a></mat-card-content>
         <mat-card-content>Long Url : <a href="{{urlDetails.longUrl}}" >{{urlDetails.longUrl}}</a></mat-card-content>
     </mat-card>
 

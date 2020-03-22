@@ -45,7 +45,7 @@
     </div>
     <div>
         <mat-card-content>
-            <a href="{{url.shortUrl}}" target="_blank" style=" color: inherit;">{{url.shortUrl}}</a>
+            <a href="{{SHORT_URL_PREFIX + url.shortUrl}}" target="_blank" style=" color: inherit;">{{SHORT_URL_PREFIX + url.shortUrl}}</a>
             <a href="javascript:" style=" color: inherit;"><i class="fas fa-clipboard" style="padding-left: 10px;" (click)="copyMessage(url.shortUrl)"></i></a>
         </mat-card-content>
     </div>

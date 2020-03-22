@@ -11,6 +11,7 @@ import { Properties } from '../properties';
 })
 export class HomeContentComponent implements OnInit {
   APP_NAME : String = Properties.APP_NAME;
+  SHORT_URL_PREFIX :string = Properties.SHORT_URL_PREFIX
 
   fetchingShortenedURL: boolean = false;
 

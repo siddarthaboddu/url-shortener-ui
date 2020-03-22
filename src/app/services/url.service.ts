@@ -83,4 +83,22 @@ export class UrlService {
       )
     });
   }
+d
+
+  public getLongUrl(shortCode: string) : Promise<Url>{
+    const headers = {
+      responseType: 'text'
+    }
+    return new Promise<Url>((resolve, reject)=>{
+      this.httpClient.get<Url>(`http://localhost:8080/free/api/longUrl/${shortCode}`,{headers})
+      .subscribe(response =>{
+        console.log("respone service: ",response);
+        resolve(response);
+      },
+      error => {
+        reject(error);
+      });
+    });
+  }
+  
 }

@@ -6,6 +6,7 @@ import { AppRegisterComponent } from './app-register/app-register.component';
 import { AppUserHomeComponent } from './app-user-home/app-user-home.component';
 import { HomeContentComponent} from './home-content/home-content.component';
 import { AppLogoutComponent } from './app-logout/app-logout.component';
+import { ShortUrlRedirectComponent } from './short-url-redirect/short-url-redirect.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,9 @@ const routes: Routes = [
       {path: 'logout', component: AppLogoutComponent}
     ]
   },
-  { path: 'home', component: AppUserHomeComponent }
+  { path: 'home', component: AppUserHomeComponent },
+  { path: 'short/:shortCode', component: ShortUrlRedirectComponent}
+
 ];
 
 @NgModule({
