@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import * as validUrl from 'valid-url';
 import { error } from 'protractor';
 import { Url } from '../models/url';
+import { resolve } from 'dns';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,7 @@ export class UrlService {
     return new Promise<Url[]>((resolve, reject)=>{
       this.httpClient.get<Url[]>("http://localhost:8080/api/urls")
       .subscribe(response=>{
-        console.log("response :",response);
+        // console.log("response :",response);
         resolve(response);
       },
       error=>{
@@ -99,6 +100,32 @@ d
         reject(error);
       });
     });
+  }
+
+  public fetchOneMonthAllVisitsHistory() : Promise<any>{
+    return new Promise<any>((resolve, reject)=>{
+      this.httpClient.get<any>('http://localhost:8080/api/url/history/last30Days/all')
+      .subscribe(response =>{
+        // console.log("history one month: ",response);
+        resolve(response);
+      },
+      error=>{
+        reject(error);
+      });
+    })
+  }
+
+  public fetchOneYearAllVisitsHistory() :Promise<any> {
+    return new Promise<any>((resolve, reject)=>{
+      this.httpClient.get<any>('http://localhost:8080/api/url/history/last1Year/all')
+      .subscribe(response =>{
+        // console.log("history one month: ",response);
+        resolve(response);
+      },
+      error=>{
+        reject(error);
+      });
+    })
   }
   
 }

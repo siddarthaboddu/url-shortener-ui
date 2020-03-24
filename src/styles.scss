@@ -102,3 +102,7 @@ $custom-theme: create-wonky-theme($custom-theme-primary, $custom-theme-accent, $
 // // Alternatively, you can import and @include the theme mixins for each component
 // // that you are using.
 // @include angular-material-theme($candy-app-theme);
+
+.advanced-pie-legend {
+  width: 15rem !important;
+}

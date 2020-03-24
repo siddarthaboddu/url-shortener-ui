@@ -1,0 +1,47 @@
+<span style="margin-left: 10px;">
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="line-graph" (change)="showGraph('line-graph')">Line Graph</mat-button-toggle>
+        <mat-button-toggle value="bar-graph" (change)="showGraph('bar-graph')">Bar Graph</mat-button-toggle>
+    </mat-button-toggle-group>
+</span>
+
+<span style="margin-right: 10px; float: right;">
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="line-graph" (change)="showData('DAILY')">Daily</mat-button-toggle>
+        <mat-button-toggle value="bar-graph" (change)="showData('MONTHLY')">Monthly</mat-button-toggle>
+    </mat-button-toggle-group>
+</span>
+
+
+
+<ngx-charts-bar-vertical style="fill: white;"  *ngIf="whichGraph == 'bar-graph'"
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="single"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [legend]="false"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    (select)="onSelect($event)">
+</ngx-charts-bar-vertical>
+
+
+<ngx-charts-line-chart style="fill: white;" *ngIf="whichGraph == 'line-graph'"
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="single"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [legend]="false"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [curve]="interpolation"
+  (select)="onSelect($event)">
+</ngx-charts-line-chart>

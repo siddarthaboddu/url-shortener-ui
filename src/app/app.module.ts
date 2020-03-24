@@ -40,6 +40,8 @@ import { UrlDetailsComponent } from './url-details/url-details.component';
 import { ShortUrlRedirectComponent } from './short-url-redirect/short-url-redirect.component';
 
 import { ShareButtonsModule } from '@ngx-share/buttons';
+import { UrlVisitsChartComponent } from './url-visits-chart/url-visits-chart.component';
+import { UrlRefererChartComponent } from './url-referer-chart/url-referer-chart.component';
 
 /**
  * Custom angular notifier options
@@ -104,7 +106,9 @@ const customNotifierOptions: NotifierOptions = {
     UserShortenUrlDialogComponent,
     UserShortenUrlResponseDialogComponent,
     UrlDetailsComponent,
-    ShortUrlRedirectComponent
+    ShortUrlRedirectComponent,
+    UrlVisitsChartComponent,
+    UrlRefererChartComponent
   ],
   imports: [
     BrowserModule,
