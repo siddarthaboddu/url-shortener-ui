@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { graphData } from './data';
 import * as shape from 'd3-shape';
+import { UrlService } from '../services/url.service';
 
 @Component({
   selector: 'app-url-visits-chart',
@@ -9,18 +10,39 @@ import * as shape from 'd3-shape';
 })
 export class UrlVisitsChartComponent implements OnInit {
 
+  @Input() urlId :any;
+
+
   // constructor() { }
   whichGraph :string;
 
   interpolation = shape.curveLinear;
 
   ngOnInit(): void {
-    this.showGraph("bar-graph");
+
+    this.graphType = "bar-graph";
+    this.graphFrequency = "DAILY";
+    
+    this.fetchDailyDetails().then(
+      response => {this.graphDataDaily = response; this.showData(this.graphFrequency)}
+    )
+
+    this.fetchMonthlyDetails().then(
+      response => { this.graphDataMonthly = response;}
+    )
+
+
   }
 
 
   single: any[];
-  multi: any[];
+
+  graphData: any[];
+  graphDataDaily: any[];
+  graphDataMonthly: any[];
+
+  graphType :string;
+  graphFrequency :string;
 
   view: any[] = [innerWidth*(55/100), 200];
 
@@ -38,8 +60,8 @@ export class UrlVisitsChartComponent implements OnInit {
     domain: ['#00897B']
   };
 
-  constructor() {
-    Object.assign(this, {graphData});
+  constructor(private urlService :UrlService) {
+    // Object.assign(this, {graphData});
   }
 
   onSelect(event) {
@@ -53,18 +75,35 @@ export class UrlVisitsChartComponent implements OnInit {
 
   populateGraph(graph: string){
     if(graph == 'bar-graph'){
-      this.single = graphData;
+      this.single = [...this.graphData];
     }
     else{
       this.single = [{
         "name" : "Visits Graph",
-        "series" : graphData
+        "series" : [...this.graphData]
       }]
     }
+
+    this.graphType = graph;
+
   }
 
   showData(frequency: string){
-    
+    if(frequency == 'MONTHLY'){
+      this.graphData = [...this.graphDataMonthly];
+    }
+    else{
+      this.graphData = [...this.graphDataDaily];
+    }
+    this.graphFrequency = frequency;
+    this.showGraph(this.graphType);
   }
 
+  fetchDailyDetails() :Promise<any>{
+    return this.urlService.fetchOneMonthUrlVisitsHistory(this.urlId);
+  }
+
+  fetchMonthlyDetails() :Promise<any>{
+    return this.urlService.fetchOneYearUrlVisitsHistory(this.urlId);
+  }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 // var validUrl = require('valid-url');
 import * as validUrl from 'valid-url';
@@ -128,4 +128,37 @@ d
     })
   }
   
+
+  public fetchOneMonthUrlVisitsHistory(urlId :any) : Promise<any>{
+    
+    let params :HttpParams = new HttpParams().set("urlId", urlId);
+
+    return new Promise<any>((resolve, reject)=>{
+      this.httpClient.get<any>('http://localhost:8080/api/url/history/last30Days/all', {params})
+      .subscribe(response =>{
+        // console.log("history one month: ",response);
+        resolve(response);
+      },
+      error=>{
+        reject(error);
+      });
+    })
+  }
+
+  public fetchOneYearUrlVisitsHistory(urlId :any) :Promise<any> {
+    
+    let params :HttpParams = new HttpParams().set("urlId", urlId);
+    
+    return new Promise<any>((resolve, reject)=>{
+      this.httpClient.get<any>('http://localhost:8080/api/url/history/last1Year/all', {params})
+      .subscribe(response =>{
+        // console.log("history one month: ",response);
+        resolve(response);
+      },
+      error=>{
+        reject(error);
+      });
+    })
+  }
+
 }

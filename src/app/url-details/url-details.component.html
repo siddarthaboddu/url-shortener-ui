@@ -29,7 +29,7 @@
                 <mat-card-title>{{urlDetails.visits}}</mat-card-title>
                 <mat-card-subtitle>VISITS</mat-card-subtitle>
             </mat-card-header>
-            <app-url-visits-chart style="height: 250px"></app-url-visits-chart>
+            <app-url-visits-chart [urlId] = "urlDetails.id" style="height: 250px"></app-url-visits-chart>
         </mat-card>
 
         <div style="margin-top: 20px"></div>
