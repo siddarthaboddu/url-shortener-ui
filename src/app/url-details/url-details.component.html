@@ -24,21 +24,21 @@
         </mat-card>
 
         <div style="margin-top: 20px;"></div>
-        <mat-card style="background-color: #1565c0;height: 300px;">
+        <mat-card style="background-color: #1565c0;height: 400px;">
             <mat-card-header> 
                 <mat-card-title>{{urlDetails.visits}}</mat-card-title>
                 <mat-card-subtitle>VISITS</mat-card-subtitle>
             </mat-card-header>
-            <app-url-visits-chart [urlId] = "urlDetails.id" style="height: 250px"></app-url-visits-chart>
+            <app-url-visits-chart [urlId] = "urlDetails.id" style="height: 300px"></app-url-visits-chart>
         </mat-card>
 
         <div style="margin-top: 20px"></div>
-        <mat-card style="background-color: #1565c0;height: 300px;">
+        <mat-card style="background-color: #1565c0;height: auto;">
             <mat-card-header> 
                 <mat-card-title>REFERER</mat-card-title>
             </mat-card-header>
             <mat-card-content >
-                <app-url-referer-chart ></app-url-referer-chart>
+                <app-url-referer-chart style="height: 450px" ></app-url-referer-chart>
             </mat-card-content>
         </mat-card>
 

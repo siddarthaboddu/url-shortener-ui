@@ -34,6 +34,9 @@ export class UrlVisitsChartComponent implements OnInit {
 
   }
 
+  onResize(event) {
+    this.view = [event.target.innerWidth*(55/100) , 300];
+  }
 
   single: any[];
 
@@ -44,7 +47,7 @@ export class UrlVisitsChartComponent implements OnInit {
   graphType :string;
   graphFrequency :string;
 
-  view: any[] = [innerWidth*(55/100), 200];
+  view: any[] = [innerWidth*(55/100), 300];
 
   // options
   showXAxis = true;

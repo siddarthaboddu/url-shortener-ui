@@ -8,7 +8,7 @@ import { refererData } from './data';
 })
 export class UrlRefererChartComponent implements OnInit {
   refererData: any[];
-  view: any[] = [innerWidth*(55/100), 250];
+  view: any[] = [500, 350];
 
   // options
   gradient: boolean = true;
@@ -24,6 +24,10 @@ export class UrlRefererChartComponent implements OnInit {
 
   ngOnInit(){
 
+  }
+
+  onResize(event) {
+    this.view = [500, 350];
   }
 
   onSelect(data): void {

@@ -15,7 +15,7 @@
 </div>
 
 
-<ngx-charts-bar-vertical style="fill: white;"  *ngIf="whichGraph == 'bar-graph'"
+<ngx-charts-bar-vertical (window:resize)="onResize($event)" style="fill: white;"  *ngIf="whichGraph == 'bar-graph'"
     [view]="view"
     [scheme]="colorScheme"
     [results]="single"
@@ -31,7 +31,7 @@
 </ngx-charts-bar-vertical>
 
 
-<ngx-charts-line-chart style="fill: white;" *ngIf="whichGraph == 'line-graph'"
+<ngx-charts-line-chart (window:resize)="onResize($event)" style="fill: white;" *ngIf="whichGraph == 'line-graph'"
     [view]="view"
     [scheme]="colorScheme"
     [results]="single"

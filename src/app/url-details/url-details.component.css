@@ -32,6 +32,6 @@ a:hover {
     color: white;
 }
 
-::ng-deep .ngx-charts{
+/* ::ng-deep .ngx-charts{
     width: 200px !important;
-}
+} */

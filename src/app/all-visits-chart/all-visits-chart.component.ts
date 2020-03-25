@@ -45,6 +45,10 @@ export class AllVisitsChartComponent implements OnInit {
 
   view: any[] = [innerWidth, 350];
 
+  onResize(event) {
+    this.view = [event.target.innerWidth , 350];
+  }
+
   // options
   showXAxis = true;
   showYAxis = true;
