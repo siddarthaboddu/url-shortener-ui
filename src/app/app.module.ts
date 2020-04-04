@@ -42,7 +42,9 @@ import { ShortUrlRedirectComponent } from './short-url-redirect/short-url-redire
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { UrlVisitsChartComponent } from './url-visits-chart/url-visits-chart.component';
 import { UrlRefererChartComponent } from './url-referer-chart/url-referer-chart.component';
-
+import { GoogleChartsModule } from 'angular-google-charts';
+import { AllWorldChartsComponent } from './all-world-charts/all-world-charts.component';
+import { WorldChartsComponent } from './world-charts/world-charts.component';
 /**
  * Custom angular notifier options
  */
@@ -108,8 +110,10 @@ const customNotifierOptions: NotifierOptions = {
     UrlDetailsComponent,
     ShortUrlRedirectComponent,
     UrlVisitsChartComponent,
-    UrlRefererChartComponent
-  ],
+    UrlRefererChartComponent,
+    AllWorldChartsComponent,
+    WorldChartsComponent
+],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -123,7 +127,9 @@ const customNotifierOptions: NotifierOptions = {
     SimplebarAngularModule,
     ShareButtonsModule.withConfig({
       debug: true
-    })
+    }),
+    GoogleChartsModule.forRoot(),
+
   ],
   providers: [   
      AuthService,

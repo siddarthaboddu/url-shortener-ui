@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Url } from '../models/url';
 import { NotificationService } from '../services/notification.service';
+import { Properties } from '../properties';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { NotificationService } from '../services/notification.service';
 export class UserShortenUrlResponseDialogComponent implements OnInit {
 
   url :Url;
+
+  SHORT_URL_PREFIX :string = Properties.SHORT_URL_PREFIX
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private notificationService :NotificationService) {
     console.log("data inside constructor of dialog response: ",data);

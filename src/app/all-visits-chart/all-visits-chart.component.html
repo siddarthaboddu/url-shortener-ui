@@ -3,6 +3,7 @@
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
             <mat-button-toggle value="line-graph" (change)="showGraph('line-graph')">Line Graph</mat-button-toggle>
             <mat-button-toggle value="bar-graph" (change)="showGraph('bar-graph')">Bar Graph</mat-button-toggle>
+            <mat-button-toggle value="world-graph" (change)="showGraph('world-graph')">World Graph</mat-button-toggle>
         </mat-button-toggle-group>
     </span>
 
@@ -46,3 +47,5 @@
     [curve]="interpolation"
     (select)="onSelect($event)">
 </ngx-charts-line-chart>
+
+<app-all-world-charts *ngIf="whichGraph == 'world-graph'"></app-all-world-charts>

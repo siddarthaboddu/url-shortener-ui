@@ -1,2 +1,23 @@
-<p>short-url-redirect works!</p>
-<p>{{shortCode}}</p>
+<div class="loading-indicator" *ngIf="loading">
+    <mat-progress-spinner mode="indeterminate" color="primary"></mat-progress-spinner>
+</div>
+
+<div *ngIf="isPasswordDialogVisible" class="main-div">
+    <mat-card class="password-dialog">
+        <mat-card-header class="mat-header-class">
+            <mat-card-title>Enter Password</mat-card-title>
+        </mat-card-header>
+        <br>
+        <mat-card-content>
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="urlForm.password" required (keyup.enter)="validatePassword(this.urlForm)"/>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+            <!-- <mat-error *ngIf="urlForm.password == undefined || urlForm.password.length==0">Enter your password</mat-error> -->
+            <br>
+            <button mat-raised-button color="primary" style="width: 30%;min-width: 75px;float: right" (click)="validatePassword(this.urlForm)" >Access</button>
+        </mat-card-content>
+    </mat-card>
+</div>
+

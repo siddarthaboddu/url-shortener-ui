@@ -5,5 +5,6 @@ export class Url {
     visits: string;
     isPasswordProtected: boolean;
     password: string;
+    passwordHash :string;
     longUrl: string;
 }

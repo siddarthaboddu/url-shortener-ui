@@ -6,11 +6,24 @@ import * as validUrl from 'valid-url';
 import { error } from 'protractor';
 import { Url } from '../models/url';
 import { resolve } from 'dns';
+import { Status } from '../models/status';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UrlService {
+  
+  validUrlPassword(urlForm: Url) :Promise<Status> {
+    return new Promise<Status>((resolve, reject)=>{
+      this.httpClient.post<Status>("http://localhost:8080/free/api/url/validPassword",urlForm)
+      .subscribe(response => {
+        resolve(response);
+      },
+      error=>{
+        reject(error);
+      })
+    });   
+  }
 
   constructor(private httpClient: HttpClient) { }
 
