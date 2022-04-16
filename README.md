@@ -1,6 +1,6 @@
 # UrlShortenerUi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21, Node v16.13.2 and NPM 8.1.2
 
 ## Development server
 
